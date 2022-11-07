@@ -23,8 +23,8 @@ class Stats : AppCompatActivity() {
 
         val nxtButton = findViewById<ImageButton>(R.id.nextButton)
         nxtButton.setOnClickListener {
-//            val intent = Intent(this, XX::class.java)  // TODO
-//            startActivity(intent)
+            val intent = Intent(this, Questions::class.java)
+            startActivity(intent)
         }
     }
 }
