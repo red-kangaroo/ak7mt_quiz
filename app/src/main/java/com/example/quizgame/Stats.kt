@@ -1,8 +1,10 @@
 package com.example.quizgame
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.GridView
+import android.widget.ImageButton
 import com.example.quizgame.StatFeed
 
 class Stats : AppCompatActivity() {
@@ -18,5 +20,11 @@ class Stats : AppCompatActivity() {
 
         val grid: GridView = findViewById<GridView>(R.id.statusGridView)
         grid.adapter = StatAdapter(this, allStats)
+
+        val nxtButton = findViewById<ImageButton>(R.id.nextButton)
+        nxtButton.setOnClickListener {
+            val intent = Intent(this, XX::class.java)  // TODO
+            startActivity(intent)
+        }
     }
 }
