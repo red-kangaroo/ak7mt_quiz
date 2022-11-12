@@ -14,7 +14,7 @@ class Questions : AppCompatActivity() {
     companion object {
         var allJoinedFeed: JoinedFeed? = null
         var questionNumber: Int = 0
-        var questionTotal: Int = 1
+        var questionTotal: Int = 10
         var answerOK: Int = 0
         var answerNOK: Int = 0
     }
