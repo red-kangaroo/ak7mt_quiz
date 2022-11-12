@@ -10,10 +10,6 @@ class ResultList(
     val response_code: Int
 )
 
-class QuizResult(
-    val result: String
-)
-
 class ResultFeed(
     val category: String,
     val type: String,

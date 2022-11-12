@@ -9,7 +9,7 @@ import android.widget.TextView
 
 class AnswerAdapter(
     private val context: Context,
-    val answers: ArrayList<String>
+    private val answers: ArrayList<String>
 ) : BaseAdapter() {
     override fun getCount(): Int {
         return answers.count()

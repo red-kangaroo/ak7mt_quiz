@@ -11,7 +11,7 @@ import android.widget.TextView
 
 class DoneAdapter(
     private val context: Context,
-    val info: DoneFeed
+    private val info: DoneFeed
 ): BaseAdapter() {
     override fun getCount(): Int {
         return 1

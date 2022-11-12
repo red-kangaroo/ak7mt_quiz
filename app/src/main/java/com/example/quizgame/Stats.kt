@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.GridView
 import android.widget.ImageButton
-import com.example.quizgame.StatFeed
 
 class Stats : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,7 +18,7 @@ class Stats : AppCompatActivity() {
         allStats.add(StatFeed(name = "Previous Score", image = R.drawable.icon_calendar))
         allStats.add(StatFeed(name = "Time Taken", image = R.drawable.icon_clock))
 
-        val grid: GridView = findViewById<GridView>(R.id.statusGridView)
+        val grid = findViewById<GridView>(R.id.statusGridView)
         grid.adapter = StatAdapter(this, allStats)
 
         val nxtButton = findViewById<ImageButton>(R.id.nextButton)

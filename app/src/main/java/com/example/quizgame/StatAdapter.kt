@@ -28,12 +28,9 @@ class StatAdapter(
         val layoutInflater: LayoutInflater = LayoutInflater.from(context)
         val mainRow: View = layoutInflater.inflate(R.layout.itemlist, viewGroup, false)
 
-        var statText: TextView = mainRow.findViewById(R.id.stat_text)
-        statText.text = allStats[p0].name
-        var statImage: ImageView = mainRow.findViewById(R.id.stat_image)
-        statImage.setImageResource(allStats[p0].image)
+        mainRow.findViewById<TextView>(R.id.stat_text).text = allStats[p0].name
+        mainRow.findViewById<ImageView>(R.id.stat_image).setImageResource(allStats[p0].image)
 
         return mainRow
     }
-
 }

@@ -1,6 +1,5 @@
 package com.example.quizgame
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -65,6 +64,7 @@ class Questions : AppCompatActivity() {
         val shownAnswers = findViewById<ListView>(R.id.answerBox)
         val currentAnswers: ArrayList<String> = allJoinedFeed!!.answers[questionNumber - 1]
         val correctAnswer = allJoinedFeed!!.answerOK[questionNumber - 1]
+
         shownAnswers.setOnItemClickListener { parent, view, position, id ->
             val clicked = id.toInt()
             val selectedAnswer = currentAnswers[clicked]
@@ -81,10 +81,16 @@ class Questions : AppCompatActivity() {
                 startQuiz()
             }
         }
+
+        val nxtButton = findViewById<ImageButton>(R.id.nextButton)  // TODO?
+//        if(questionNumber == questionTotal){
+//            stopQuiz()
+//        } else {
+//            startQuiz()
+//        }
     }
 
     private fun startQuiz(){
-        val nxtButton = findViewById<ImageButton>(R.id.nextButton)
         val totalQuestionNumber = findViewById<TextView>(R.id.questionEnum)
         val shownQuestionNumber = findViewById<TextView>(R.id.questionNo)
         val activeQuestion = findViewById<TextView>(R.id.questionText)
