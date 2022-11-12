@@ -41,18 +41,18 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                android:src="@drawable/menu_3horizontal"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:src="@drawable/menu_3horizontal" />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                android:src="@drawable/bust"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:src="@drawable/bust" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -73,40 +73,39 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:paddingVertical="40dp"
-            android:paddingHorizontal="50dp"
             android:background="@drawable/border"
+            android:paddingHorizontal="50dp"
+            android:paddingVertical="40dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/statusName">
 
             <GridView
                 android:id="@+id/statusGridView"
-                android:scrollbarAlwaysDrawHorizontalTrack="false"
-                android:scrollbars="none"
-                android:fastScrollEnabled="false"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:fastScrollEnabled="false"
                 android:numColumns="2"
-                app:layout_constraintTop_toTopOf="parent"
+                android:scrollbarAlwaysDrawHorizontalTrack="false"
+                android:scrollbars="none"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                />
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-    
+
     <ImageButton
         android:id="@+id/nextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingVertical="2dp"
-        android:paddingHorizontal="2dp"
-        android:src="@drawable/arrow_fore"
         android:background="#ffffff"
+        android:paddingHorizontal="2dp"
+        android:paddingVertical="2dp"
+        android:src="@drawable/arrow_fore"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
