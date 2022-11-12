@@ -11,6 +11,7 @@ class Stats : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_stats)
+        supportActionBar?.hide()
 
         val allStats: ArrayList<StatFeed> = ArrayList()
         allStats.add(StatFeed(name = "Total Score", image = R.drawable.icon_trophy))
