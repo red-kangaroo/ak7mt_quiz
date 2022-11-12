@@ -1,5 +1,6 @@
 package com.example.quizgame
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -13,9 +14,8 @@ import com.google.gson.GsonBuilder
 class Questions : AppCompatActivity() {
     companion object {
         var allJoinedFeed: JoinedFeed? = null
-        var answerSelected: ArrayList<String> = ArrayList()
         var questionNumber: Int = 0
-        var questionTotal: Int = 10
+        var questionTotal: Int = 1
         var answerOK: Int = 0
         var answerNOK: Int = 0
     }
@@ -25,7 +25,7 @@ class Questions : AppCompatActivity() {
         setContentView(R.layout.activity_questions)
         supportActionBar?.hide()
 
-        val endpoint: String = "https://opentdb.com/api.php?amount=${questionTotal}&difficulty=easy&type=multiple"
+        val endpoint = "https://opentdb.com/api.php?amount=${questionTotal}&difficulty=easy&type=multiple"
         val questions: ArrayList<String> = ArrayList()
         val answers: ArrayList<ArrayList<String>> = ArrayList()
         val allOKAnswers: ArrayList<String> = ArrayList()
@@ -60,35 +60,13 @@ class Questions : AppCompatActivity() {
         httpAsync.join()
 
         allJoinedFeed = JoinedFeed(questions=questions, answers=answers, answerOK=allOKAnswers)
-        startQuiz() // TODO
-    }
+        startQuiz()
 
-    private fun startQuiz(){
-        val nxtButton = findViewById<ImageButton>(R.id.nextButton)
-        val totalQuestionNumber = findViewById<TextView>(R.id.questionEnum)
-        val shownQuestionNumber = findViewById<TextView>(R.id.questionNo)
-        val activeQuestion = findViewById<TextView>(R.id.questionText)
         val shownAnswers = findViewById<ListView>(R.id.answerBox)
-
-        val doneOverlay = findViewById<ConstraintLayout>(R.id.quizDoneOverlay)
-        val donePupUp = findViewById<ListView>(R.id.quizDonePopUp)
-        doneOverlay.visibility = View.GONE
-
-        val currentQuestion = allJoinedFeed!!.questions[questionNumber]
-        val currentAnswers: ArrayList<String> = allJoinedFeed!!.answers[questionNumber]
-        val correctAnswer = allJoinedFeed!!.answerOK[questionNumber]
-
-        questionNumber++
-        totalQuestionNumber.text = "${questionNumber.toString()}/${questionTotal.toString()}"
-        shownQuestionNumber.text = "${questionNumber.toString()}."
-
-        activeQuestion.text = currentQuestion
-        setAnswers(currentAnswers)
-
+        val currentAnswers: ArrayList<String> = allJoinedFeed!!.answers[questionNumber - 1]
+        val correctAnswer = allJoinedFeed!!.answerOK[questionNumber - 1]
         shownAnswers.setOnItemClickListener { parent, view, position, id ->
             val clicked = id.toInt()
-//            println(clicked)
-
             val selectedAnswer = currentAnswers[clicked]
 
             if(selectedAnswer == correctAnswer) {
@@ -98,17 +76,41 @@ class Questions : AppCompatActivity() {
             }
 
             if(questionNumber == questionTotal){
-                doneOverlay.visibility = View.VISIBLE
-
-                val doneInfo = DoneFeed(
-                    answersOK= answerOK,
-                    answersNOK = answerNOK
-                )
-                donePupUp.adapter = DoneAdapter(this, doneInfo)
+                stopQuiz()
             } else {
-
+                startQuiz()
             }
         }
+    }
+
+    private fun startQuiz(){
+        val nxtButton = findViewById<ImageButton>(R.id.nextButton)
+        val totalQuestionNumber = findViewById<TextView>(R.id.questionEnum)
+        val shownQuestionNumber = findViewById<TextView>(R.id.questionNo)
+        val activeQuestion = findViewById<TextView>(R.id.questionText)
+
+        val currentQuestion = allJoinedFeed!!.questions[questionNumber]
+        val currentAnswers: ArrayList<String> = allJoinedFeed!!.answers[questionNumber]
+
+        questionNumber++
+        totalQuestionNumber.text = "${questionNumber.toString()}/${questionTotal.toString()}"
+        shownQuestionNumber.text = "${questionNumber.toString()}."
+
+        activeQuestion.text = currentQuestion
+        setAnswers(currentAnswers)
+    }
+
+    private fun stopQuiz(){
+        val doneOverlay = findViewById<ConstraintLayout>(R.id.quizDoneOverlay)
+        val donePupUp = findViewById<ListView>(R.id.quizDonePopUp)
+
+
+        doneOverlay.visibility = View.VISIBLE
+        val doneInfo = DoneFeed(
+            answersOK= answerOK,
+            answersNOK = answerNOK
+        )
+        donePupUp.adapter = DoneAdapter(this, doneInfo)
     }
 
     private fun setAnswers(answers: ArrayList<String>){

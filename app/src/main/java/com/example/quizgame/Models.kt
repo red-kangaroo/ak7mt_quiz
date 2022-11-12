@@ -28,3 +28,8 @@ class JoinedFeed(
     val answers: ArrayList<ArrayList<String>>,
     val answerOK: ArrayList<String>
 )
+
+class DoneFeed(
+    val answersOK: Int,
+    val answersNOK: Int
+)
