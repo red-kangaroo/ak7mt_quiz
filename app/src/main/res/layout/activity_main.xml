@@ -5,63 +5,68 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingHorizontal="22dp"
-    android:paddingVertical="44dp"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/welcome"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/opensansbold"
-        android:text="Welcome to the"
-        android:textColor="#006793"
-        android:textSize="40sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingHorizontal="22dp"
+        android:paddingVertical="44dp">
 
-    <TextView
-        android:id="@+id/gamename"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/opensansbold"
-        android:text="QuizGame"
-        android:textColor="#1CC4B8"
-        android:textSize="40sp"
-        app:layout_constraintEnd_toEndOf="@id/welcome"
-        app:layout_constraintStart_toStartOf="@id/welcome"
-        app:layout_constraintTop_toBottomOf="@id/welcome" />
+        <TextView
+            android:id="@+id/welcome"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/opensansbold"
+            android:text="Welcome to the"
+            android:textColor="#006793"
+            android:textSize="40sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:src="@drawable/app"
-        app:layout_constraintEnd_toEndOf="@id/welcome"
-        app:layout_constraintStart_toStartOf="@id/welcome"
-        app:layout_constraintTop_toBottomOf="@id/gamename" />
+        <TextView
+            android:id="@+id/gamename"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/opensansbold"
+            android:text="QuizGame"
+            android:textColor="#1CC4B8"
+            android:textSize="40sp"
+            app:layout_constraintEnd_toEndOf="@id/welcome"
+            app:layout_constraintStart_toStartOf="@id/welcome"
+            app:layout_constraintTop_toBottomOf="@id/welcome" />
 
-    <TextView
-        android:id="@+id/introtext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:fontFamily="@font/opensansitalic"
-        android:text="Lorem ipsum"
-        android:textSize="17sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/image" />
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/app"
+            app:layout_constraintEnd_toEndOf="@id/welcome"
+            app:layout_constraintStart_toStartOf="@id/welcome"
+            app:layout_constraintTop_toBottomOf="@id/gamename" />
 
-    <Button
+        <TextView
+            android:id="@+id/introtext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:fontFamily="@font/opensansitalic"
+            android:text="Lorem ipsum"
+            android:textSize="17sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/image" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageButton
         android:id="@+id/startButton"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/opensansextrabold"
-        android:text="START"
-        android:textSize="25sp"
+        android:background="#ffffff"
+        android:src="@drawable/start_bottom"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

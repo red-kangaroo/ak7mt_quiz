@@ -11,3 +11,4 @@ redesign donelist
    horizontal layouts for text
    restart is big button with eg. Yay!
 timer
+lives
