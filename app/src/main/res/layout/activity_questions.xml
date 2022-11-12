@@ -146,7 +146,7 @@
         android:layout_height="match_parent"
         android:alpha="0.9"
         android:background="@drawable/shader"
-        android:elevation="3dp"
+        android:elevation="4dp"
         android:paddingHorizontal="12dp">
 
         <ListView
