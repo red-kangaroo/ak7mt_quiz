@@ -1,18 +1,14 @@
 # Požadavky
 * ~~zdrojové kódy přístupné v nějakém verzovacím systému (GIT)~~
-* vlastní ikona aplikace, vlastní splashscreen
-* více propojených obrazovek, funkční navigační stack (přechody mezi obrazovkami)
+* ~~vlastní ikona aplikace, vlastní splashscreen~~
+* ~~více propojených obrazovek, funkční navigační stack (přechody mezi obrazovkami)~~
 * ukládání dat do perzistentní paměti zařízení
 * vstup od uživatele (zadávání dat uživatelem)
 * ~~komunikace s libovolným REST API~~
 
 
 # App
-* app icon
 * save stats
-
-## Main
-* new icon
 
 ## Stats
 * select category, difficulty
