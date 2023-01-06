@@ -32,4 +32,3 @@
 ### Bugs
 * fix ""
 * fix text overflow
-* fix no. 10 being squished
