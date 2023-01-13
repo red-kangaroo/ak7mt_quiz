@@ -2,6 +2,8 @@ package com.example.quizgame
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+//import android.os.Build
+//import android.text.Html
 import android.view.View
 import android.widget.ImageButton
 import android.widget.ListView
@@ -42,16 +44,21 @@ class Questions : AppCompatActivity() {
                     is com.github.kittinunf.result.Result.Success -> {
                         val rawData: String = result.get()
                         val jsonBuilder = GsonBuilder().create()
+//                        val rawData = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+//                            Html.fromHtml(rawHtml, Html.FROM_HTML_MODE_LEGACY).toString()
+//                        } else {
+//                            Html.fromHtml(rawHtml).toString()
+//                        }
 
                         val data: ResultList = jsonBuilder.fromJson(rawData, ResultList::class.java)
                         for(value in data.results){
-                            questions.add(value.question)
+                            questions.add(resetHtml(value.question))
 
                             val allAnswers = value.incorrect_answers
-                            allAnswers.add((0..3).random(), value.correct_answer)
+                            allAnswers.add((0..3).random(), resetHtml(value.correct_answer))
                             answers.add(allAnswers)
 
-                            allOKAnswers.add(value.correct_answer)
+                            allOKAnswers.add(resetHtml(value.correct_answer))
                         }
                     }
                 }
@@ -125,5 +132,12 @@ class Questions : AppCompatActivity() {
         for(a in answers){
             shownAnswers.adapter = AnswerAdapter(this, answers)
         }
+    }
+
+    private fun resetHtml(str: String): String {
+        return str
+            .replace("&#039;", "'")
+            .replace("&quot;", "\"")
+            .replace("&rsquo;", "'")
     }
 }
