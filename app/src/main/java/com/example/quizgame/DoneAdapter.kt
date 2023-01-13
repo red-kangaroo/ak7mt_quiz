@@ -29,8 +29,11 @@ class DoneAdapter(
         val layoutInflater: LayoutInflater = LayoutInflater.from(context)
         val doneBox: View = layoutInflater.inflate(R.layout.donelist, viewGroup, false)
 
-        doneBox.findViewById<TextView>(R.id.correct).text = info.answersOK.toString()
-        doneBox.findViewById<TextView>(R.id.incorrect).text = info.answersNOK.toString()
+        val scorePerc: Int = info.answersOK / info.questionNumber * 100
+
+        doneBox.findViewById<TextView>(R.id.score).text = "Score: ${scorePerc}%"
+        doneBox.findViewById<TextView>(R.id.correct).text = "Correct: ${info.answersOK.toString()}"
+        doneBox.findViewById<TextView>(R.id.incorrect).text = "Incorrect: ${info.answersNOK.toString()}"
 
         val restartButton = doneBox.findViewById<ImageButton>(R.id.restart)
         restartButton.setOnClickListener {
