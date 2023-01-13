@@ -114,7 +114,8 @@ class Questions : AppCompatActivity() {
         doneOverlay.visibility = View.VISIBLE
         val doneInfo = DoneFeed(
             answersOK= answerOK,
-            answersNOK = answerNOK
+            answersNOK = answerNOK,
+            questionNumber = questionNumber
         )
         donePupUp.adapter = DoneAdapter(this, doneInfo)
     }

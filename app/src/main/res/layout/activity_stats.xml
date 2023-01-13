@@ -35,6 +35,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
+            android:id="@+id/optionMenu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/menu_3horizontal"
@@ -43,6 +44,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
+            android:id="@+id/optionPlayer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/bust"
@@ -102,5 +104,30 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/statListOverlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.9"
+        android:background="@drawable/shader"
+        android:elevation="4dp"
+        android:paddingHorizontal="12dp">
+
+        <ListView
+            android:id="@+id/statPopUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/border"
+            android:divider="@null"
+            android:dividerHeight="20dp"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

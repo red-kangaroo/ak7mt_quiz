@@ -3,8 +3,12 @@ package com.example.quizgame
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.GridView
 import android.widget.ImageButton
+import android.widget.ImageView
+import android.widget.ListView
+import androidx.constraintlayout.widget.ConstraintLayout
 
 class Stats : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,6 +29,21 @@ class Stats : AppCompatActivity() {
         startButton.setOnClickListener {
             val intent = Intent(this, Questions::class.java)
             startActivity(intent)
+        }
+
+        val statusOverlay: ConstraintLayout = findViewById(R.id.statListOverlay)
+        val statPupUp = findViewById<ListView>(R.id.statPopUp)
+        statusOverlay.visibility = View.GONE
+
+//        val optionMenu = findViewById<ImageButton>(R.id.optionMenu)
+//        optionMenu.setOnClickListener {
+//            statusOverlay.visibility = View.VISIBLE
+//            statPupUp.adapter =  TODO
+//        }
+        val optionPlayer = findViewById<ImageView>(R.id.optionPlayer)
+        optionPlayer.setOnClickListener {
+            statusOverlay.visibility = View.VISIBLE
+            statPupUp.adapter = StatNameAdapter(this)
         }
     }
 }

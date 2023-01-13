@@ -27,5 +27,6 @@ class JoinedFeed(
 
 class DoneFeed(
     val answersOK: Int,
-    val answersNOK: Int
+    val answersNOK: Int,
+    val questionNumber: Int
 )
