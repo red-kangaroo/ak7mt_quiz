@@ -22,15 +22,20 @@ class MainActivity : AppCompatActivity() {
         val startButton = findViewById<ImageButton>(R.id.startButton)
         startButton.visibility = View.GONE
         startButton.setOnClickListener {
-            val moveTo = Intent(this, Stats::class.java)
-            startActivity(moveTo)
-            finish()
+            startGame()
         }
 
         val loader = findViewById<ProgressBar>(R.id.introload)
         Handler().postDelayed({
             loader.visibility = View.GONE
-            startButton.visibility = View.VISIBLE
+            startGame()
+//            startButton.visibility = View.VISIBLE
         }, 3000)
+    }
+
+    private fun startGame() {
+        val moveTo = Intent(this, Stats::class.java)
+        startActivity(moveTo)
+        finish()
     }
 }
