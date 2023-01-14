@@ -26,7 +26,7 @@ class StatNameAdapter(private val context: Context
     }
 
     override fun getView(p0: Int, view: View?, viewGroup: ViewGroup?): View {
-        val saveName = "QuizGameSaveData"
+        val saveName = "QuizGameSaveName"
         val layoutInflater: LayoutInflater = LayoutInflater.from(context)
         val doneBox: View = layoutInflater.inflate(R.layout.namelist, viewGroup, false)
         val playerNameEdit = doneBox.findViewById<EditText>(R.id.playerName)

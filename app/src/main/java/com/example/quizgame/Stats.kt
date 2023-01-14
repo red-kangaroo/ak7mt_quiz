@@ -9,6 +9,8 @@ import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.ListView
 import androidx.constraintlayout.widget.ConstraintLayout
+import android.widget.Toast
+import java.io.*
 
 class Stats : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,11 +37,31 @@ class Stats : AppCompatActivity() {
         val statPupUp = findViewById<ListView>(R.id.statPopUp)
         statusOverlay.visibility = View.GONE
 
-//        val optionMenu = findViewById<ImageButton>(R.id.optionMenu)
-//        optionMenu.setOnClickListener {
-//            statusOverlay.visibility = View.VISIBLE
-//            statPupUp.adapter =  TODO
-//        }
+        val optionMenu = findViewById<ImageView>(R.id.optionMenu)
+        optionMenu.setOnClickListener {
+            statusOverlay.visibility = View.VISIBLE
+            val saveName = "QuizGameSaveScore"
+
+            try {
+                var fileInputStream: FileInputStream = openFileInput(saveName)
+                var inputStreamReader = InputStreamReader(fileInputStream)
+                val bufferedReader = BufferedReader(inputStreamReader)
+                val scores: ArrayList<String> = arrayListOf()
+                var text: String? = null
+                while ({ text = bufferedReader.readLine(); text }() != null) {
+                    text?.let { tx -> scores.add(tx) }
+                }
+                for(s in scores){
+                    statPupUp.adapter = AnswerAdapter(this, scores)
+                }
+            } catch (e: FileNotFoundException) {
+                e.printStackTrace()
+            } catch (e: Exception) {
+                e.printStackTrace()
+                Toast.makeText(this,"Could not retrieve player scores.", Toast.LENGTH_LONG).show()
+            }
+        }
+
         val optionPlayer = findViewById<ImageView>(R.id.optionPlayer)
         optionPlayer.setOnClickListener {
             statusOverlay.visibility = View.VISIBLE

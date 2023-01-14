@@ -17,7 +17,7 @@
   * on the left, also the exit button 
 
 ## Questions
-* waiting animation when loading
+* waiting animation when loading (waitlist.xml)
 * back arrow should ask if you want to give up
 * refact donelist
   * horizontal layouts for text

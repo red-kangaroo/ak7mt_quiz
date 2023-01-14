@@ -26,7 +26,7 @@ class AnswerAdapter(
     override fun getView(p0: Int, view: View?, viewGroup: ViewGroup?): View {
         val layoutInflater: LayoutInflater = LayoutInflater.from(context)
         val answerRow: View = layoutInflater.inflate(R.layout.answerlist, viewGroup, false)
-        val answerChar: Char = 'A'
+        val answerChar = 'A'
 
         answerRow.findViewById<TextView>(R.id.answer_num).text = "${answerChar + p0}."
         answerRow.findViewById<TextView>(R.id.answer_text).text = answers[p0]
