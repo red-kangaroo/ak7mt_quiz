@@ -50,11 +50,18 @@ class DoneAdapter(
             Toast.makeText(context,"Could not retrieve player name.", Toast.LENGTH_LONG).show()
         }
 
+        var scoreEntry: ByteArray = byteArrayOf()
+        try {
+            val fileInputStream: FileInputStream = context.openFileInput(saveName + "Score")
+            scoreEntry = fileInputStream.readBytes()
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
         val fileOutputStream: FileOutputStream
         try {
             fileOutputStream = context.openFileOutput(saveName + "Score", Context.MODE_PRIVATE)
-            val scoreEntry: String = "${playerName}: ${info.answersOK.toString()}/${info.questionNumber.toString()}"
-            fileOutputStream.write(scoreEntry.toByteArray())
+            val scoreNew = "${playerName}: ${info.answersOK.toString()}/${info.questionNumber.toString()}\n"
+            fileOutputStream.write(scoreEntry + scoreNew.toByteArray())
         } catch (e: java.lang.Exception) {
             e.printStackTrace()
         }

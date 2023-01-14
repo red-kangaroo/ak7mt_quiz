@@ -38,12 +38,20 @@ class StatScoreAdapter(private val context: Context
             var fileInputStream: FileInputStream = context.openFileInput(saveName)
             var inputStreamReader = InputStreamReader(fileInputStream)
             val bufferedReader = BufferedReader(inputStreamReader)
-            val scores: ArrayList<String> = arrayListOf()
+            val scores: MutableList<String> = ArrayList()
             var text: String? = null
             while ({ text = bufferedReader.readLine(); text }() != null) {
-                text?.let { tx -> scores.add(tx) }
+                text?.let { tx ->
+                    scores.add(tx)
+                    Toast.makeText(context, tx, Toast.LENGTH_LONG).show()
+//                    val lines = tx.split("10")
+//                    for (l in lines) {
+//                        scores.add(l)
+//                    }
+                }
             }
-            for(s in scores.sorted()){
+            // TODO: Problem is here:
+            for(s in scores){
                 scoreBox.adapter = ScoreAdapter(context, scores)
             }
         } catch (e: FileNotFoundException) {

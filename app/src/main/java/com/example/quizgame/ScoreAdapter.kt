@@ -9,7 +9,7 @@ import android.widget.TextView
 
 class ScoreAdapter(
     private val context: Context,
-    private val answers: ArrayList<String>
+    private val answers: MutableList<String>
 ) : BaseAdapter() {
     override fun getCount(): Int {
         return answers.count()
