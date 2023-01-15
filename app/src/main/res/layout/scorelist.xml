@@ -20,14 +20,15 @@
         app:layout_constraintTop_toTopOf="parent"
         />
 
-    <ListView
+    <TextView
         android:id="@+id/scoreBox"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_height="match_parent"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/opensanssemiold"
         android:background="#ffffff"
-        android:divider="@null"
-        android:dividerHeight="18dp"
+        android:textColor="#000"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/headStat" />

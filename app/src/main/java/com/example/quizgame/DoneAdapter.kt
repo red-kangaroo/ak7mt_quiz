@@ -34,8 +34,8 @@ class DoneAdapter(
         val doneBox: View = layoutInflater.inflate(R.layout.donelist, viewGroup, false)
 
         try {
-            var fileInputStream: FileInputStream = context.openFileInput(saveName + "Name")
-            var inputStreamReader = InputStreamReader(fileInputStream)
+            val nameInputStream: FileInputStream = context.openFileInput(saveName + "Name")
+            val inputStreamReader = InputStreamReader(nameInputStream)
             val bufferedReader = BufferedReader(inputStreamReader)
             val stringBuilder: StringBuilder = StringBuilder()
             var text: String? = null
@@ -52,8 +52,8 @@ class DoneAdapter(
 
         var scoreEntry: ByteArray = byteArrayOf()
         try {
-            val fileInputStream: FileInputStream = context.openFileInput(saveName + "Score")
-            scoreEntry = fileInputStream.readBytes()
+            val scoreInputStream: FileInputStream = context.openFileInput(saveName + "Score")
+            scoreEntry = scoreInputStream.readBytes()
         } catch (e: Exception) {
             e.printStackTrace()
         }
