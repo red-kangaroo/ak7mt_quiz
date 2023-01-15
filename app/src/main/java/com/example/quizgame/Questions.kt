@@ -6,10 +6,7 @@ import android.os.Bundle
 //import android.os.Build
 //import android.text.Html
 import android.view.View
-import android.widget.ImageButton
-import android.widget.ImageView
-import android.widget.ListView
-import android.widget.TextView
+import android.widget.*
 import androidx.constraintlayout.widget.ConstraintLayout
 import com.github.kittinunf.fuel.httpGet
 import com.google.gson.GsonBuilder
@@ -52,6 +49,7 @@ class Questions : AppCompatActivity() {
                     is com.github.kittinunf.result.Result.Failure -> {
                         val ex = result.getException()
                         println(ex)
+                        Toast.makeText(this,"Failed to load questions.", Toast.LENGTH_LONG).show()
                     }
                     is com.github.kittinunf.result.Result.Success -> {
                         val rawData: String = result.get()
