@@ -43,7 +43,7 @@ class StatScoreAdapter(private val context: Context
             while ({ text = bufferedReader.readLine(); text }() != null) {
                 text?.let { tx ->
                     scores.add(tx)
-                    Toast.makeText(context, tx, Toast.LENGTH_LONG).show()
+//                    Toast.makeText(context, tx, Toast.LENGTH_LONG).show()
 //                    val lines = tx.split("10")
 //                    for (l in lines) {
 //                        scores.add(l)

@@ -24,6 +24,7 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
+                android:id="@+id/backButton"
                 android:layout_width="21dp"
                 android:layout_height="21dp"
                 android:src="@drawable/arrow_back"

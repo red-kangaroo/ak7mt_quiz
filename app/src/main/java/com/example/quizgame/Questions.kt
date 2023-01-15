@@ -1,11 +1,13 @@
 package com.example.quizgame
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 //import android.os.Build
 //import android.text.Html
 import android.view.View
 import android.widget.ImageButton
+import android.widget.ImageView
 import android.widget.ListView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -33,6 +35,16 @@ class Questions : AppCompatActivity() {
 
         val doneOverlay: ConstraintLayout = findViewById(R.id.quizDoneOverlay)
         doneOverlay.visibility = View.GONE
+        val timeInfo: TextView = findViewById(R.id.timeLeft)
+        timeInfo.visibility = View.GONE
+
+        val nxtButton = findViewById<ImageButton>(R.id.nextButton)
+        val backButton = findViewById<ImageView>(R.id.backButton)
+        backButton.setOnClickListener {
+            val intent = Intent(this, Stats::class.java)
+            startActivity(intent)
+            finish()
+        }
 
         val httpAsync = endpoint.httpGet()
             .responseString{request, response, result ->
@@ -88,13 +100,15 @@ class Questions : AppCompatActivity() {
                 startQuiz()
             }
         }
+        nxtButton.setOnClickListener {
+            answerNOK++
 
-        val nxtButton = findViewById<ImageButton>(R.id.nextButton)  // TODO?
-//        if(questionNumber == questionTotal){
-//            stopQuiz()
-//        } else {
-//            startQuiz()
-//        }
+            if(questionNumber == questionTotal){
+                stopQuiz()
+            } else {
+                startQuiz()
+            }
+        }
     }
 
     private fun startQuiz(){
@@ -139,5 +153,6 @@ class Questions : AppCompatActivity() {
             .replace("&#039;", "'")
             .replace("&quot;", "\"")
             .replace("&rsquo;", "'")
+            .replace("&shy;", "-")
     }
 }
