@@ -32,8 +32,8 @@ class StatNameAdapter(private val context: Context
         val playerNameEdit = doneBox.findViewById<EditText>(R.id.playerName)
 
         try {
-            var fileInputStream: FileInputStream = context.openFileInput(saveName)
-            var inputStreamReader = InputStreamReader(fileInputStream)
+            val fileInputStream: FileInputStream = context.openFileInput(saveName)
+            val inputStreamReader = InputStreamReader(fileInputStream)
             val bufferedReader = BufferedReader(inputStreamReader)
             val stringBuilder: StringBuilder = StringBuilder()
             var text: String? = null

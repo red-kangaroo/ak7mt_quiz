@@ -32,15 +32,17 @@ class StatScoreAdapter(private val context: Context
         val scoreBox = doneBox.findViewById<TextView>(R.id.scoreBox)
 
         try {
-            var fileInputStream: FileInputStream = context.openFileInput(saveName)
-            var inputStreamReader = InputStreamReader(fileInputStream)
+            val fileInputStream: FileInputStream = context.openFileInput(saveName)
+            val inputStreamReader = InputStreamReader(fileInputStream)
             val bufferedReader = BufferedReader(inputStreamReader)
             val stringBuilder: StringBuilder = StringBuilder()
             var text: String? = null
             while ({ text = bufferedReader.readLine(); text }() != null) {
                 stringBuilder.append(text)
             }
-            scoreBox.setText(stringBuilder.toString()).toString()
+            scoreBox.setText(
+                stringBuilder.toString().split("@").joinToString(separator = "\n")
+            ).toString()
         } catch (e: FileNotFoundException) {
             e.printStackTrace()
             Toast.makeText(context,"No player scores yet.", Toast.LENGTH_LONG).show()

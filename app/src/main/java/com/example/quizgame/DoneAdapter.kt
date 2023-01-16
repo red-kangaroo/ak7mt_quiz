@@ -60,7 +60,7 @@ class DoneAdapter(
         val fileOutputStream: FileOutputStream
         try {
             fileOutputStream = context.openFileOutput(saveName + "Score", Context.MODE_PRIVATE)
-            val scoreNew = "${playerName}: ${info.answersOK.toString()}/${info.questionNumber.toString()}\n"
+            val scoreNew = "${playerName}: ${info.answersOK.toString()}/${info.questionNumber.toString()}@"
             fileOutputStream.write(scoreEntry + scoreNew.toByteArray())
         } catch (e: java.lang.Exception) {
             e.printStackTrace()

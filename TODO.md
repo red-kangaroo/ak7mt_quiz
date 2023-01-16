@@ -8,24 +8,25 @@
 
 
 # App
-* save stats
 
 ## Stats
-* select category, difficulty
+* select category, difficulty, type
+* save times
 * show stats on stats screen
-* on the left, the exit button 
+* the exit button?
+* trophies
 
 ## Questions
 * back arrow should ask if you want to give up
 * refact donelist
   * horizontal layouts for text
   * restart is big button with eg. Yay!
-* remove/use next button
+* remove next button?
 * add red/green bkg when pressing answer (then show next button?)
 * show current in/correct
 * timer
 * lives
 
 ### Bugs
-* fix text overflow
-* fix score display
+* text overflow
+* doubled scores
