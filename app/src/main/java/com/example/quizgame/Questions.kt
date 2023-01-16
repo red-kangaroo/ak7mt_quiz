@@ -15,9 +15,12 @@ class Questions : AppCompatActivity() {
     companion object {
         var allJoinedFeed: JoinedFeed? = null
         var questionNumber: Int = 0
-        var questionTotal: Int = 10
         var answerOK: Int = 0
         var answerNOK: Int = 0
+        // Settings:
+        var questionTotal: Int = 10
+        var questionDiff: String = "easy"
+        var questionType: String = "multiple"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,10 +28,15 @@ class Questions : AppCompatActivity() {
         setContentView(R.layout.activity_questions)
         supportActionBar?.hide()
 
-        val endpoint = "https://opentdb.com/api.php?amount=${questionTotal}&difficulty=easy&type=multiple"
+        val endpoint = "https://opentdb.com/api.php?amount=${questionTotal}&difficulty=${questionDiff}&type=${questionType}"
         val questions: ArrayList<String> = ArrayList()
         val answers: ArrayList<ArrayList<String>> = ArrayList()
         val allOKAnswers: ArrayList<String> = ArrayList()
+
+        // Reset questions:
+        questionNumber = 0
+        answerOK = 0
+        answerNOK = 0
 
         val doneOverlay: ConstraintLayout = findViewById(R.id.quizDoneOverlay)
         doneOverlay.visibility = View.GONE
