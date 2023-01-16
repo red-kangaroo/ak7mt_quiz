@@ -41,6 +41,7 @@ class StatNameAdapter(private val context: Context
                 stringBuilder.append(text)
             }
             playerNameEdit.setText(stringBuilder.toString()).toString()
+            fileInputStream.close()
         } catch (e: FileNotFoundException) {
             e.printStackTrace()
         } catch (e: Exception) {
@@ -55,6 +56,7 @@ class StatNameAdapter(private val context: Context
             try {
                 fileOutputStream = context.openFileOutput(saveName, Context.MODE_PRIVATE)
                 fileOutputStream.write(playerName.toByteArray())
+                fileOutputStream.close()
             } catch (e: java.lang.Exception) {
                 e.printStackTrace()
             }

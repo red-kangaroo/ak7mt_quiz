@@ -43,6 +43,7 @@ class StatScoreAdapter(private val context: Context
             scoreBox.setText(
                 stringBuilder.toString().split("@").joinToString(separator = "\n")
             ).toString()
+            fileInputStream.close()
         } catch (e: FileNotFoundException) {
             e.printStackTrace()
             Toast.makeText(context,"No player scores yet.", Toast.LENGTH_LONG).show()

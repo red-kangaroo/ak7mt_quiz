@@ -30,3 +30,4 @@
 ### Bugs
 * text overflow
 * doubled scores
+* &#039; in answers
