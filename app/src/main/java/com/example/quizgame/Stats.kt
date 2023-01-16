@@ -20,7 +20,7 @@ class Stats : AppCompatActivity() {
         val allStats: ArrayList<StatFeed> = ArrayList()
         allStats.add(StatFeed(name = "Trophies", image = R.drawable.icon_trophy))
         allStats.add(StatFeed(name = "Categories", image = R.drawable.icon_note))
-        allStats.add(StatFeed(name = "Previous Score", image = R.drawable.icon_calendar))
+        allStats.add(StatFeed(name = "Previous Scores", image = R.drawable.icon_calendar))
         allStats.add(StatFeed(name = "Time Taken", image = R.drawable.icon_clock))
 
         val grid = findViewById<GridView>(R.id.statusGridView)
@@ -45,13 +45,25 @@ class Stats : AppCompatActivity() {
         val optionMenu = findViewById<ImageView>(R.id.optionMenu)
         optionMenu.setOnClickListener {
             statusOverlay.visibility = View.VISIBLE
-            statPupUp.adapter = StatScoreAdapter(this)
+            statPupUp.adapter = ToDoAdapter(this)
         }
 
         val optionPlayer = findViewById<ImageView>(R.id.optionPlayer)
         optionPlayer.setOnClickListener {
             statusOverlay.visibility = View.VISIBLE
             statPupUp.adapter = StatNameAdapter(this)
+        }
+
+        grid.setOnItemClickListener { parent, view, position, id ->
+            val clicked = id.toInt()
+
+            if (clicked == 2) {
+                statusOverlay.visibility = View.VISIBLE
+                statPupUp.adapter = StatScoreAdapter(this)
+            } else {
+                statusOverlay.visibility = View.VISIBLE
+                statPupUp.adapter = ToDoAdapter(this)
+            }
         }
     }
 }

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingHorizontal="15dp"
+    android:paddingVertical="21dp"
+    >
+    <TextView
+        android:id="@+id/headTODO"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/opensansbold"
+        android:text="TODO"
+        android:textColor="#006996"
+        android:textSize="14pt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/textTODO"
+        android:layout_width="match_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="50dp"
+        android:text="This feature is not yet working and will be added later. Sorry."
+        android:fontFamily="@font/opensanssemiold"
+        android:background="#ffffff"
+        android:textColor="#000"
+        android:textSize="16sp"
+        android:maxLines="20"
+        android:singleLine="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/headTODO" />
+
+    <ImageButton
+        android:id="@+id/restart"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="#fff"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/x_close"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
