@@ -15,6 +15,7 @@
 * show stats on stats screen
 * the exit button?
 * trophies
+* order scores by score
 
 ## Questions
 * back arrow should ask if you want to give up

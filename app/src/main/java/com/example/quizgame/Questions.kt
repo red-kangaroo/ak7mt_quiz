@@ -106,6 +106,8 @@ class Questions : AppCompatActivity() {
                 startQuiz()
             }
         }
+
+        nxtButton.visibility = View.GONE
         nxtButton.setOnClickListener {
             answerNOK++
 
@@ -160,5 +162,6 @@ class Questions : AppCompatActivity() {
             .replace("&quot;", "\"")
             .replace("&rsquo;", "'")
             .replace("&shy;", "-")
+            .replace("&eacute", "e")
     }
 }
